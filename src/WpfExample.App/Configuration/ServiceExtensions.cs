@@ -32,7 +32,6 @@ namespace WpfExample.App.Configuration
             services.AddSingleton<ICustomerRepository, CustomerInMemoryRepository>();
         }
 
-
         public static void RegisterFactories(this IServiceCollection services)
         {
 
