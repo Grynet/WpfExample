@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using WpfExample.App.Model;
+using WpfExample.App.Models;
 
 namespace WpfExample.App.Repositories
 {

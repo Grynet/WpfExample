@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace WpfExample.App.ViewModel
+namespace WpfExample.App.ViewModels
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

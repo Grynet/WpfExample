@@ -1,4 +1,4 @@
-﻿namespace WpfExample.App.Model
+﻿namespace WpfExample.App.Models
 {
     public class Address
     {
