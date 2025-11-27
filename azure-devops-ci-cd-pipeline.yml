@@ -1,0 +1,170 @@
+
+pool: 'Homelab'
+
+stages:       
+
+- stage: Build
+  displayName: 'Build'
+  isSkippable: false
+  jobs:
+    - job: BuildWpfApp
+      workspace:
+        clean: all
+      steps:
+        - checkout: self
+          fetchDepth: 0
+          fetchTags: true
+      
+        - script: chmod +x ./git-semver-bumper.sh && ./git-semver-bumper.sh
+          name: SetVersionStep   
+          displayName: 'Update Semantic Version'
+
+        - script: |     
+            buildNumber="$(SemanticVersion)_${BUILD_BUILDID}"      
+            echo "##vso[build.updatebuildnumber]$buildNumber"
+          displayName: 'Update build number'
+
+        - task: UseDotNet@2
+          displayName: 'Use .NET SDK 8'
+          inputs:
+            version: '8.x'    
+
+        - task: DotNetCoreCLI@2
+          displayName: 'Restore project dependencies'
+          inputs:
+            command: 'restore'
+            projects: '**/*.csproj'
+
+        - task: DotNetCoreCLI@2
+          displayName: 'Build the project - $(buildConfiguration)'
+          inputs:
+            command: 'build'
+            arguments: '--no-restore --configuration $(buildConfiguration)'
+            projects: '**/*.csproj'
+
+        - task: DotNetCoreCLI@2
+          displayName: 'Publish the project - $(buildConfiguration)'
+          inputs:
+            command: 'publish'
+            projects: '$(Build.SourcesDirectory)/src/WpfExample.App/WpfExample.App.csproj'
+            publishWebProjects: false
+            arguments: >
+              --configuration $(buildConfiguration)
+              /p:PublishDir=$(Build.ArtifactStagingDirectory)/publish/
+              /p:OutputPath=$(Build.ArtifactStagingDirectory)/publish/
+              /p:UseAppHost=false
+            zipAfterPublish: false 
+
+        - script: |
+                 previousTag=$(git tag --sort=-v:refname | head -n 1)
+                 echo "Previous tag: $previousTag"
+                 releaseNotesFile="release-notes.md"
+                 echo "# Release notes $(SemanticVersion)" > $releaseNotesFile
+                 echo -e "\n## 🚀 Features" >> $releaseNotesFile
+                 git log $previousTag..HEAD --pretty=format:"* %s" | grep '^\* feat' >> $releaseNotesFile || echo "- _No new features_" >> $releaseNotesFile
+                 echo -e "\n## 🐛 Fixes" >> $releaseNotesFile        
+                 git log $previousTag..HEAD --pretty=format:"* %s" | grep '^\* fix' >> $releaseNotesFile || echo "- _No bug fixes_" >> $releaseNotesFile
+                 echo "Generated release notes:"
+                 cat $releaseNotesFile
+          displayName: Generate release notes
+
+        - task: CopyFiles@2
+          displayName: 'Copy Release notes to Build artifacts folder'
+          inputs:
+            SourceFolder: '$(Build.SourcesDirectory)'
+            Contents: 'release-notes.md'
+            TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'Build Artifacts'
+
+- stage: Test
+  displayName: 'Run Tests'
+  dependsOn: Build
+  jobs:
+    - job: RunUnitTests
+      workspace:
+        clean: all     
+      steps:
+        - checkout: self
+
+        - task: UseDotNet@2
+          displayName: 'Use .NET SDK 8'
+          inputs:
+            version: '8.x'
+
+        - task: DotNetCoreCLI@2
+          displayName: 'Test the project - $(buildConfiguration)'
+          inputs:
+            command: 'test'
+            arguments: >
+              --configuration $(buildConfiguration)
+              --collect:"XPlat Code Coverage"
+              /p:CoverletOutputFormat=cobertura
+            projects: '**/*.Tests.csproj'
+    
+        - task: PublishCodeCoverageResults@2
+          displayName: 'Publish Cobertura Code Coverage'
+          inputs:
+            codeCoverageTool: 'Cobertura'
+            summaryFileLocation: '$(Agent.TempDirectory)/*/coverage.cobertura.xml'
+  
+- stage: Prod
+  displayName: 'Prod Release'
+  trigger: manual
+  jobs:
+    - deployment: CreateGtHubRelease
+      workspace:
+        clean: all
+      displayName: 'Create Github release'
+      environment: 'prod'      
+      strategy:
+        runOnce:
+          deploy:            
+            steps:
+              - checkout: self
+                persistCredentials: true
+                fetchDepth: 0 
+                fetchTags: true
+
+              - download: current
+                displayName: 'Download build artifacts'
+                artifact: 'Build Artifacts'
+
+              - script: |
+                  echo "Build Number: $(Build.BuildNumber)"                  
+                  semanticVersion=$(echo "$(Build.BuildNumber)" | cut -d'_' -f1)
+                  echo "Semantic version: $semanticVersion"
+                  echo "##vso[task.setvariable variable=SemanticVersion]$semanticVersion"
+                name: SetSemanticVersion
+                displayName: 'Extract semantic version'
+
+              - script: |
+                  echo "Tagging Git commit with $(SemanticVersion)"
+                  git config user.name "Azure DevOps"
+                  git config user.email "buildagent@dev.azure.com"
+                  
+                  echo "Tagging commit with version: $(SemanticVersion)"                  
+                  git tag $(SemanticVersion) $(Build.SourceVersion)
+                  git push origin $(SemanticVersion)
+                env:
+                  SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+                displayName: "Create Git Tag"
+
+              - task: GitHubRelease@1
+                displayName: 'Create a GitHub release'
+                inputs:
+                    action: 'create'
+                    repositoryName: $(Build.Repository.Name)
+                    gitHubConnection: 'Grynet'
+                    tagSource: 'gitTag'
+                    target: $(Build.SourceVersion)
+                    title: $(SemanticVersion)
+                    releaseNotesSource: 'filePath'
+                    releaseNotesFilePath: '$(Build.SourcesDirectory)/release-notes.md' 
+                    addChangeLog: false
+                    assets: |
+                        $(Pipeline.Workspace)/Build Artifacts/publish.zip
+                        $(Build.SourcesDirectory)/release-notes.md
