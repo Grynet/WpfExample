@@ -16,6 +16,8 @@ namespace WpfExample.App.ViewModels
 
         protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
+            VerifyPropertyName(propertyName);
+
             if (Equals(storage, value))
                 return false;
 
