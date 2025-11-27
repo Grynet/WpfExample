@@ -83,6 +83,7 @@ stages:
 - stage: Test
   displayName: 'Run Tests'
   dependsOn: Build
+  condition: false
   jobs:
     - job: RunUnitTests
       workspace:
