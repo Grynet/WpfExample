@@ -103,7 +103,7 @@ stages:
               --configuration $(buildConfiguration)
               --collect:"XPlat Code Coverage"
               /p:CoverletOutputFormat=cobertura
-            projects: '**/*.Tests.csproj'
+            projects: '**/*.*Tests.csproj'
     
         - task: PublishCodeCoverageResults@2
           displayName: 'Publish Cobertura Code Coverage'
