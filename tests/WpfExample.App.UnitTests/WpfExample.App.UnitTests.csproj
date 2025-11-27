@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\WpfExample.App\WpfExample.App.csproj" />
+    <ProjectReference Include="..\..\src\WpfExample.App\WpfExample.App.csproj" />
   </ItemGroup>
 
   <ItemGroup>
