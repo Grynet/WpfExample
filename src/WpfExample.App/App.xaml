@@ -1,9 +1,12 @@
 ﻿<Application x:Class="WpfExample.App.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WpfExample.App"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:WpfExample.App">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>         
     </Application.Resources>
 </Application>
