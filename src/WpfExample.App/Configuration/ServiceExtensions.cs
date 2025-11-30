@@ -3,7 +3,7 @@ using System;
 using System.Windows;
 using WpfExample.App.Factories;
 using WpfExample.App.Repositories;
-using WpfExample.App.Views;
+using WpfExample.App.Mvvm.Views;
 
 
 namespace WpfExample.App.Configuration
