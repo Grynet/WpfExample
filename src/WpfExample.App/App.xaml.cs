@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Windows;
 using WpfExample.App.Configuration;
-using WpfExample.App.Views;
+using WpfExample.App.Mvvm.Views;
 
 namespace WpfExample.App
 {

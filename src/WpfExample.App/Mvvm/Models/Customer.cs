@@ -1,4 +1,4 @@
-﻿namespace WpfExample.App.Models
+﻿namespace WpfExample.App.Mvvm.Models
 {
     public class Customer
     {

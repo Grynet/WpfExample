@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using WpfExample.App.Models;
+using WpfExample.App.Mvvm.Models;
 
 namespace WpfExample.App.Repositories
 {

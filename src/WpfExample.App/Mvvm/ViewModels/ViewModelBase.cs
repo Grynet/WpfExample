@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace WpfExample.App.ViewModels
+namespace WpfExample.App.Mvvm.ViewModels
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
@@ -31,7 +31,7 @@ namespace WpfExample.App.ViewModels
         public void VerifyPropertyName(string propertyName)
         {
             if (TypeDescriptor.GetProperties(this)[propertyName] == null)
-            {              
+            {
                 throw new Exception($"Invalid property name '{propertyName}'");
             }
         }

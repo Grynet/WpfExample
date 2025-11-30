@@ -2,7 +2,7 @@
 using System.Windows;
 using WpfExample.App.Configuration;
 
-namespace WpfExample.App.Views
+namespace WpfExample.App.Mvvm.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

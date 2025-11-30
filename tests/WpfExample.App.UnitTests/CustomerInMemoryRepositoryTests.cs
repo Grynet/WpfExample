@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using WpfExample.App.Models;
+using WpfExample.App.Mvvm.Models;
 using WpfExample.App.Repositories;
 
 namespace WpfExample.App.UnitTests
@@ -34,9 +34,9 @@ namespace WpfExample.App.UnitTests
 
             //Assert
             Assert.IsNotNull(actualCustomer);
-            Assert.AreEqual(expectedCustomer.Id, actualCustomer.Id);
-            Assert.AreEqual(expectedCustomer.FirstName, actualCustomer.FirstName);
-            Assert.AreEqual(expectedCustomer.LastName, actualCustomer.LastName);
+            Assert.That(actualCustomer.Id, Is.EqualTo(expectedCustomer.Id));
+            Assert.That(actualCustomer.FirstName, Is.EqualTo(expectedCustomer.FirstName));
+            Assert.That(actualCustomer.LastName, Is.EqualTo(expectedCustomer.LastName));
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace WpfExample.App.UnitTests
             var actualCustomer = await _sut.Get(customerId, CancellationToken.None);
 
             //Assert
-            Assert.Null(actualCustomer);
+            Assert.That(actualCustomer, Is.Null);
         }
 
 
@@ -91,9 +91,9 @@ namespace WpfExample.App.UnitTests
 
             //Assert
             Assert.IsNotNull(actualCustomer);
-            Assert.AreEqual(expectedCustomer.Id, actualCustomer.Id);
-            Assert.AreEqual(expectedCustomer.FirstName, actualCustomer.FirstName);
-            Assert.AreEqual(expectedCustomer.LastName, actualCustomer.LastName);
+            Assert.That(actualCustomer.Id, Is.EqualTo(expectedCustomer.Id));
+            Assert.That(actualCustomer.FirstName, Is.EqualTo(expectedCustomer.FirstName));
+            Assert.That(actualCustomer.LastName, Is.EqualTo(expectedCustomer.LastName));
         }
 
         [Test]
