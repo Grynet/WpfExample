@@ -18,11 +18,11 @@ stages:
           fetchDepth: 0
           fetchTags: true
       
-        - script: chmod +x ./git-semver-bumper.sh && ./git-semver-bumper.sh
+        - bash: chmod +x ./git-semver-bumper.sh && ./git-semver-bumper.sh
           name: SetVersionStep   
           displayName: 'Update Semantic Version'
 
-        - script: |     
+        - bash: |     
             buildNumber="$(SemanticVersion)_${BUILD_BUILDID}"      
             echo "##vso[build.updatebuildnumber]$buildNumber"
           displayName: 'Update build number'
@@ -58,7 +58,7 @@ stages:
               /p:UseAppHost=false
             zipAfterPublish: false 
 
-        - script: |
+        - bash: |
                  previousTag=$(git tag --sort=-v:refname | head -n 1)
                  echo "Previous tag: $previousTag"
                  releaseNotesFile="release-notes.md"
@@ -137,7 +137,7 @@ stages:
                 displayName: 'Download build artifacts'
                 artifact: 'Build Artifacts'
 
-              - script: |
+              - bash: |
                   echo "Build Number: $(Build.BuildNumber)"                  
                   semanticVersion=$(echo "$(Build.BuildNumber)" | cut -d'_' -f1)
                   echo "Semantic version: $semanticVersion"
@@ -145,7 +145,7 @@ stages:
                 name: SetSemanticVersion
                 displayName: 'Extract semantic version'
 
-              - script: |
+              - bash: |
                   echo "Tagging Git commit with $(SemanticVersion)"
                   git config user.name "Azure DevOps"
                   git config user.email "buildagent@dev.azure.com"
