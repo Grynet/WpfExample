@@ -2,7 +2,7 @@
 pool: 
   name: 'Homelab'
   demands:
-  - Agent.OS -equal Windows_NT
+  - agent.os -equals Windows_NT
 
 stages:       
 
