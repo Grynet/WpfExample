@@ -2,7 +2,6 @@
 using System;
 using System.Windows;
 using WpfExample.App.Factories;
-using WpfExample.App.Repositories;
 using WpfExample.App.Mvvm.Views;
 
 
@@ -29,7 +28,7 @@ namespace WpfExample.App.Configuration
 
         public static void RegisterRepositories(this IServiceCollection services)
         {
-            services.AddSingleton<ICustomerRepository, CustomerInMemoryRepository>();
+
         }
 
         public static void RegisterFactories(this IServiceCollection services)

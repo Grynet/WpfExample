@@ -19,4 +19,12 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+    <Folder Include="Fonts\" />
+    <Folder Include="Mvvm\Models\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Styles\" />
+  </ItemGroup>
+
 </Project>
