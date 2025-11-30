@@ -62,11 +62,13 @@ stages:
                  previousTag=$(git tag --sort=-v:refname | head -n 1)
                  echo "Previous tag: $previousTag"
                  releaseNotesFile="release-notes.md"
+                 range=${previousTag:+$previousTag..}HEAD
+                 echo "Using range: $range"
                  echo "# Release notes $(SemanticVersion)" > $releaseNotesFile
                  echo -e "\n## 🚀 Features" >> $releaseNotesFile
-                 git log $previousTag..HEAD --pretty=format:"* %s" | grep '^\* feat' >> $releaseNotesFile || echo "- _No new features_" >> $releaseNotesFile
+                 git log $range --pretty=format:"* %s" | grep '^\* feat' >> $releaseNotesFile || echo "- _No new features_" >> $releaseNotesFile
                  echo -e "\n## 🐛 Fixes" >> $releaseNotesFile        
-                 git log $previousTag..HEAD --pretty=format:"* %s" | grep '^\* fix' >> $releaseNotesFile || echo "- _No bug fixes_" >> $releaseNotesFile
+                 git log $range --pretty=format:"* %s" | grep '^\* fix' >> $releaseNotesFile || echo "- _No bug fixes_" >> $releaseNotesFile
                  echo "Generated release notes:"
                  cat $releaseNotesFile
           displayName: Generate release notes
