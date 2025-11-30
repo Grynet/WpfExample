@@ -9,10 +9,9 @@ namespace WpfExample.App.Mvvm.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(IOptions<MainWindowOptions> options)
+        public MainWindow()
         {
-            InitializeComponent();
-            Title = options.Value.WindowTitle;
+            InitializeComponent();            
         }
     }
 }

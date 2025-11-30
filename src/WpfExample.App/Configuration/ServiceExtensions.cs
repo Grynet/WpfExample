@@ -11,14 +11,15 @@ namespace WpfExample.App.Configuration
     {
         public static void RegisterOptions(this IServiceCollection services)
         {
-            services.AddOptionsWithValidateOnStart<MainWindowOptions>()
-                .BindConfiguration(MainWindowOptions.Position)
+            services.AddOptionsWithValidateOnStart<UiOptions>()
+                .BindConfiguration(UiOptions.Position)
                 .ValidateDataAnnotations();
         }
 
         public static void RegisterViews(this IServiceCollection services)
         {
             services.AddSingleton<MainWindow>();
+            services.AddSingleton<HeaderView>();
         }
 
         public static void RegisterViewModels(this IServiceCollection services)
