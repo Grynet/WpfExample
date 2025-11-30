@@ -16,8 +16,7 @@
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
 
-        <TextBlock 
-              Name="Title"
+        <TextBlock Grid.Column="0"              
               Text="WPF Shop"
               VerticalAlignment="Center"
               HorizontalAlignment="Left"

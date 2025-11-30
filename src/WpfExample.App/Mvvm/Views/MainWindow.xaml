@@ -19,6 +19,7 @@
             </Grid.RowDefinitions>      
 
             <views:HeaderView Grid.Row="0"/>
+            <views:BodyView Grid.Row="1"/>
         </Grid>
     </Border>
 </Window>
