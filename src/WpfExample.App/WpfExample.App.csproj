@@ -20,14 +20,20 @@
     </None>
   </ItemGroup>
 
+	<ItemGroup>
+		<Folder Include="Images\"/>
+		<Folder Include="Fonts\" />
+		<Folder Include="Mvvm\Views\" />
+		<Folder Include="Mvvm\Models\" />
+		<Folder Include="Mvvm\ViewModels\" />
+		<Folder Include="Repositories\" />
+		<Folder Include="Styles\" />
+	</ItemGroup>
+
   <ItemGroup>
-    <Folder Include="Images\" />
-    <Folder Include="Fonts\" />
-	<Folder Include="Mvvm\Views\" />
-    <Folder Include="Mvvm\Models\" />
-	 <Folder Include="Mvvm\ViewModels\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Styles\" />
+    <Resource Include="Images\ShoppingCart.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

@@ -9,23 +9,25 @@
              mc:Ignorable="d" 
              Background="#272537"
              HorizontalAlignment="Stretch"
-             MinWidth="600"             >
-    <Grid>
+             MinWidth="400"
+             Height="75">
+    <Grid Margin="20,0,20,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="6.5*"/>
-            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition MinHeight="75"/>
-        </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="0"      
-              Text="Wpf Example"
+              Text="{Binding Title}"
               VerticalAlignment="Center"
               HorizontalAlignment="Left"
               Foreground="White"
               FontSize="22"
               Margin="20,0,0,0"/>
+
+        <Image Grid.Column="2"
+               Height="25" 
+               Source="/Images/ShoppingCart.png"/>
     </Grid>
 </UserControl>
