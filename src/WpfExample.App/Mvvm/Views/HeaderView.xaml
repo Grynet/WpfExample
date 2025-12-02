@@ -4,20 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfExample.App.Mvvm.Views"
+             xmlns:viewModels="clr-namespace:WpfExample.App.Mvvm.ViewModels"
+             d:DataContext="{d:DesignInstance viewModels:HeaderViewModel}"
              mc:Ignorable="d" 
-             Background="Transparent">
+             Background="#272537"
+             HorizontalAlignment="Stretch"
+             MinWidth="600"             >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="6.5*"/>
+            <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition MinHeight="75"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0"              
-              Text="WPF Shop"
+        <TextBlock Grid.Column="0"      
+              Text="Wpf Example"
               VerticalAlignment="Center"
               HorizontalAlignment="Left"
               Foreground="White"

@@ -1,6 +1,5 @@
-﻿using Microsoft.Extensions.Options;
-using System.Windows;
-using WpfExample.App.Configuration;
+﻿using System.Windows;
+using WpfExample.App.Mvvm.ViewModels;
 
 namespace WpfExample.App.Mvvm.Views
 {
@@ -9,9 +8,10 @@ namespace WpfExample.App.Mvvm.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainWindowViewModel viewModel)
         {
             InitializeComponent();            
+            DataContext = viewModel;
         }
     }
 }

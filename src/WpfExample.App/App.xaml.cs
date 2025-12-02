@@ -22,7 +22,7 @@ namespace WpfExample.App
 
             builder.Services.RegisterOptions();
             builder.Services.RegisterFactories();
-            builder.Services.RegisterViews();
+            builder.Services.RegisterWindows();
             builder.Services.RegisterViewModels();
             builder.Services.RegisterRepositories();
 

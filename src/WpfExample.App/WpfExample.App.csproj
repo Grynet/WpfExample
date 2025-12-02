@@ -23,8 +23,9 @@
   <ItemGroup>
     <Folder Include="Images\" />
     <Folder Include="Fonts\" />
+	<Folder Include="Mvvm\Views\" />
     <Folder Include="Mvvm\Models\" />
-    <Folder Include="Mvvm\ViewModels\" />
+	 <Folder Include="Mvvm\ViewModels\" />
     <Folder Include="Repositories\" />
     <Folder Include="Styles\" />
   </ItemGroup>

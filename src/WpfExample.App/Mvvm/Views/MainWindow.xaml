@@ -4,22 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:WpfExample.App.Mvvm.Views"
+        xmlns:viewModels="clr-namespace:WpfExample.App.Mvvm.ViewModels"
+        d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
         mc:Ignorable="d"
         Height="600" Width="920"
-        WindowStyle="None"
-        ResizeMode="NoResize"
+        MinWidth="600"
+        MinHeight="300"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResize"
         Background="Transparent"
-        AllowsTransparency="True">
-    <Border Background="#272537"
-            CornerRadius="20">
+        >
+    <Border CornerRadius="20">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
                 <RowDefinition/>
-            </Grid.RowDefinitions>      
+            </Grid.RowDefinitions>
 
-            <views:HeaderView Grid.Row="0"/>
-            <views:BodyView Grid.Row="1"/>
+
+            <ContentControl Content="{Binding Header}" Grid.Row="0" />
+            <ContentControl Content="{Binding Body}" Grid.Row="1" />
+           
         </Grid>
     </Border>
 </Window>

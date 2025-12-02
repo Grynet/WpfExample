@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using WpfExample.App.Factories;
+using WpfExample.App.Mvvm.ViewModels;
 using WpfExample.App.Mvvm.Views;
 
 
@@ -16,15 +17,16 @@ namespace WpfExample.App.Configuration
                 .ValidateDataAnnotations();
         }
 
-        public static void RegisterViews(this IServiceCollection services)
+        public static void RegisterWindows(this IServiceCollection services)
         {
             services.AddSingleton<MainWindow>();
-            services.AddSingleton<HeaderView>();
         }
 
         public static void RegisterViewModels(this IServiceCollection services)
         {
-
+            services.AddSingleton<MainWindowViewModel>();
+            services.AddSingleton<HeaderViewModel>();
+            services.AddSingleton<BodyViewModel>();
         }
 
         public static void RegisterRepositories(this IServiceCollection services)
