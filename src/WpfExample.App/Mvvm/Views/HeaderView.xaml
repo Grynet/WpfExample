@@ -9,8 +9,8 @@
              mc:Ignorable="d" 
              Background="#272537"
              HorizontalAlignment="Stretch"
-             MinWidth="400"
-             Height="75">
+             Height="75"             
+             d:DesignWidth="600">
     <Grid Margin="20,0,20,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
