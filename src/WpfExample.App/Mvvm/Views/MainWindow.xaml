@@ -15,34 +15,25 @@
         ResizeMode="CanResize"
         Background="Transparent">
 
-    <Window.Resources>        
+    <Window.Resources>
         <DataTemplate DataType="{x:Type TypeName=viewModels:HeaderViewModel}">
             <local:HeaderView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type TypeName=viewModels:BodyViewModel}">
             <local:BodyView/>
         </DataTemplate>
-    </Window.Resources>   
+    </Window.Resources>
+
     <Border CornerRadius="20">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-
             <ContentControl Content="{Binding Header}" Grid.Row="0" />
-
-            <ProgressBar 
-                Grid.Row="1" 
-                IsIndeterminate="True"
-                Visibility="{Binding LoadDataCommand.IsRunning, 
-                                     Converter={StaticResource BooleanToVisibilityConverter}}"/>
-
-            <ContentControl Content="{Binding Body}" 
-                            Grid.Row="1"
-                            Visibility="{Binding LoadDataCommand.IsRunning, 
-                                                 Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
+            <ContentControl Content="{Binding Body}" Grid.Row="1"/>
+            
         </Grid>
     </Border>
 </Window>

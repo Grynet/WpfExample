@@ -1,7 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using System.Threading.Tasks;
-
-namespace WpfExample.App.Mvvm.ViewModels
+﻿namespace WpfExample.App.Mvvm.ViewModels
 {
     public class MainWindowViewModel
     {
@@ -9,16 +6,9 @@ namespace WpfExample.App.Mvvm.ViewModels
         {
             Header = headerViewModel;
             Body = body;
-            LoadDataCommand = new AsyncRelayCommand(LoadDataAsync);
-            LoadDataCommand.Execute(null);
         }
-        public IAsyncRelayCommand LoadDataCommand { get; }
-        public HeaderViewModel Header { get; }
-        public BodyViewModel Body { get; }
 
-        private async Task LoadDataAsync()
-        {
-            await Task.Delay(5_000);
-        }
+        public HeaderViewModel Header { get; }
+        public BodyViewModel Body { get; }        
     }
 }
