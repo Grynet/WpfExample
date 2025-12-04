@@ -6,8 +6,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/ResourceDictionaries/Converters.xaml" />
-                <ResourceDictionary Source="/ResourceDictionaries/Styles/ButtonStyles.xaml" />
-                <ResourceDictionary Source="/ResourceDictionaries/Styles/TextBoxStyles.xaml" />
+                <ResourceDictionary Source="/ResourceDictionaries/ButtonStyles.xaml" />
+                <ResourceDictionary Source="/ResourceDictionaries/TextBoxStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>         
         </ResourceDictionary>      
     </Application.Resources>
