@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Core Palette -->
+    <Color x:Key="PrimaryColor">#91b1f1</Color>
+    <Color x:Key="SecondaryColor">#cfac64</Color>
+
+    <!-- Backgrounds -->
+    <Color x:Key="BackgroundDarkColor">#01030b</Color>
+    <Color x:Key="BackgroundColor">#060b16</Color>
+    <Color x:Key="BackgroundLightColor">#101622</Color>
+    
+    <!-- Text -->
+    <Color x:Key="TextColor">#e1f2ff</Color>
+    <Color x:Key="TextMutedColor">#a1b1d2</Color>
+    
+    <!-- Border -->
+    <Color x:Key="BorderColor">#3a4763</Color>
+    <Color x:Key="BorderMutedColor">#212d47</Color>
+    
+    <!-- Status-->
+    <Color x:Key="DangerColor">#bc938c</Color>
+    <Color x:Key="WarningColor">#a5a07c</Color>
+    <Color x:Key="SuccessColor">#84a894</Color>
+    <Color x:Key="InfoColor">#8d9fbe</Color>
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}"/>
+
+    <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDarkColor}"/>
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLightColor}"/>
+
+    <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}"/>
+    <SolidColorBrush x:Key="TextMutedBrush" Color="{StaticResource TextMutedColor}"/>
+
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}"/>
+    <SolidColorBrush x:Key="BorderMutedBrush" Color="{StaticResource BorderMutedColor}"/>
+
+    <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}"/>
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}"/>
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}"/>
+    <SolidColorBrush x:Key="InfoBrush" Color="{StaticResource InfoColor}"/>
+    
+</ResourceDictionary>
