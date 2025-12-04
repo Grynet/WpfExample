@@ -11,28 +11,28 @@
              Background="Transparent">
     <Border CornerRadius="0,0,20,20" Background="AliceBlue">
         <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>           
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>           
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0"
-                    BorderBrush="Gray"
-                    BorderThickness="0,0,1,0">
-                <StackPanel Grid.Column="0"
-                            Margin="20,20,0,0"
-                            >
-                    <TextBlock Text="This is the first item"/>
-                    <TextBlock Text="This is the first item"/>
-                    <TextBlock Text="This is the first item"/>
-                </StackPanel>
-            </Border>
+                <Border Grid.Column="0"
+                        BorderBrush="Gray"
+                        BorderThickness="0,0,1,0">
+                    <StackPanel Grid.Column="0"
+                                Margin="20,20,0,0"
+                                >
+                        <TextBlock Text="This is the first item"/>
+                        <TextBlock Text="This is the first item"/>
+                        <TextBlock Text="This is the first item"/>
+                    </StackPanel>
+                </Border>
 
             <TextBlock Grid.Column="1"
-                Text="This is the body"
-                FontSize="22"
-                VerticalAlignment="Center" 
-                HorizontalAlignment="center"/>
+                    Text="This is the body"
+                    FontSize="22"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="center"/>
         </Grid>
         </Border>
 </UserControl>
