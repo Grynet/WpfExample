@@ -19,14 +19,14 @@ namespace WpfExample.App.Configuration
 
         public static void RegisterWindows(this IServiceCollection services)
         {
-            services.AddSingleton<MainWindow>();
+            services.AddScoped<MainWindow>();
         }
 
         public static void RegisterViewModels(this IServiceCollection services)
         {
-            services.AddSingleton<MainWindowViewModel>();
-            services.AddSingleton<HeaderViewModel>();
-            services.AddSingleton<BodyViewModel>();
+            services.AddScoped<MainWindowViewModel>();
+            services.AddScoped<HeaderViewModel>();
+            services.AddScoped<BodyViewModel>();
         }
 
         public static void RegisterRepositories(this IServiceCollection services)
