@@ -7,7 +7,8 @@
              xmlns:viewModels="clr-namespace:WpfExample.App.Mvvm.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:HeaderViewModel}"
              mc:Ignorable="d" 
-             Background="#272537"
+             Background="{StaticResource BackgroundDarkBrush}"
+             Foreground="{StaticResource TextBrush}"
              HorizontalAlignment="Stretch"
              Height="75"             
              d:DesignWidth="600">

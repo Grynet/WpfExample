@@ -6,13 +6,13 @@
              xmlns:local="clr-namespace:WpfExample.App.Mvvm.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450"
-             Width="200">
-    <Border BorderBrush="Gray"
-         BorderThickness="0,0,1,0">
+             Background="{StaticResource BackgroundBrush}"
+             Foreground="{StaticResource TextMutedBrush}">
+   
         <StackPanel>
             <local:NavigationItem />
             <local:NavigationItem />
             <local:NavigationItem />
         </StackPanel>
-    </Border>
+
 </UserControl>
