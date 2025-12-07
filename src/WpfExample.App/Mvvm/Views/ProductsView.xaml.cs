@@ -2,9 +2,9 @@
 
 namespace WpfExample.App.Mvvm.Views
 {
-    public partial class BodyView : UserControl
+    public partial class ProductsView : UserControl
     {
-        public BodyView()
+        public ProductsView()
         {
             InitializeComponent();
         }

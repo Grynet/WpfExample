@@ -4,6 +4,7 @@ using System.Windows;
 using WpfExample.App.Factories;
 using WpfExample.App.Mvvm.ViewModels;
 using WpfExample.App.Mvvm.Views;
+using WpfExample.App.Repositories;
 
 
 namespace WpfExample.App.Configuration
@@ -27,11 +28,14 @@ namespace WpfExample.App.Configuration
             services.AddScoped<MainWindowViewModel>();
             services.AddScoped<HeaderViewModel>();
             services.AddScoped<BodyViewModel>();
+
+            services.AddTransient<HomeViewModel>();
+            services.AddTransient<ProductsViewModel>();
         }
 
         public static void RegisterRepositories(this IServiceCollection services)
         {
-
+            services.AddSingleton<IProductRepository, ProductInMemoryRepository>();
         }
 
         public static void RegisterFactories(this IServiceCollection services)

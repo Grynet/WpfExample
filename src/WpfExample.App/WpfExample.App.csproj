@@ -21,11 +21,9 @@
   </ItemGroup>
 
 	<ItemGroup>
+		<Folder Include="Controls\" />
 		<Folder Include="Images\" />
 		<Folder Include="Fonts\" />
-		<Folder Include="Mvvm\Models\" />
-		<Folder Include="Mvvm\ViewModels\" />
-		<Folder Include="Repositories\" />
 	</ItemGroup>
 
   <ItemGroup>

@@ -1,20 +1,40 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Threading.Tasks;
 
 namespace WpfExample.App.Mvvm.ViewModels
 {
-    public class BodyViewModel
+    public partial class BodyViewModel : ObservableObject
     {
-        public BodyViewModel()
-        {
-            LoadDataCommand = new AsyncRelayCommand(LoadDataAsync);
-            LoadDataCommand.Execute(null);
-        }
-        public IAsyncRelayCommand LoadDataCommand { get; }
+        [ObservableProperty]
+        private INavigatableViewModel _currentViewModel;
 
-        private async Task LoadDataAsync()
+        public BodyViewModel(HomeViewModel homeViewModel, ProductsViewModel productsViewModel)
         {
-            await Task.Delay(5_000);
+            NavigateCommand = new AsyncRelayCommand<INavigatableViewModel>(Navigate);
+            HomeViewModel = homeViewModel;
+            ProductsViewModel = productsViewModel;
+
+            CurrentViewModel = HomeViewModel;
         }
+
+        public HomeViewModel HomeViewModel { get; set; }
+        public ProductsViewModel ProductsViewModel { get; set; }
+        public IAsyncRelayCommand<INavigatableViewModel> NavigateCommand { get; }
+
+
+        private async Task Navigate(INavigatableViewModel navigatableViewModel)
+        {
+            var canNavigateFrom = await CurrentViewModel.TryNavigateFrom();
+
+            if (canNavigateFrom)
+            {
+                var canNavigateTo = await navigatableViewModel.TryNavigateTo();
+                if (canNavigateTo) 
+                {
+                    CurrentViewModel = navigatableViewModel;
+                }
+            }        
+        }        
     }
 }
