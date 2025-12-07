@@ -77,7 +77,7 @@ namespace WpfExample.App.Repositories
 
         private Task ArtificalDelay()
         {
-            var delayInMs = Random.Shared.Next(20, 251);
+            var delayInMs = Random.Shared.Next(500, 1500);
             return Task.Delay(delayInMs);
         }
     }
