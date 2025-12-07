@@ -30,8 +30,7 @@
 
             <Border Grid.Column="0"
                     BorderBrush="{StaticResource BorderBrush}"
-                    BorderThickness="0,0,1,0"
-                    
+                    BorderThickness="0,0,1,0"                    
                     Margin="10"
                     Width="100">
                 <StackPanel HorizontalAlignment="Center" >
