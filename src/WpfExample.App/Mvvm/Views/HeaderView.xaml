@@ -12,6 +12,7 @@
              HorizontalAlignment="Stretch"
              Height="75"             
              d:DesignWidth="600">
+    
     <Grid Margin="20,0,20,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -31,4 +32,5 @@
                Height="25" 
                Source="/Images/ShoppingCart.png"/>
     </Grid>
+    
 </UserControl>

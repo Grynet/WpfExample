@@ -6,10 +6,12 @@
              xmlns:local="clr-namespace:WpfExample.App.Mvvm.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <TextBlock Grid.Column="1"
         Text="This is the HomeView"
         Foreground="{StaticResource TextBrush}"
         FontSize="22"
         VerticalAlignment="Center" 
         HorizontalAlignment="center"/>
+    
 </UserControl>
