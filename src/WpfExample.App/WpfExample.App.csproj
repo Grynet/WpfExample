@@ -21,9 +21,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Controls\" />
 		<Folder Include="Images\" />
-		<Folder Include="Fonts\" />
 	</ItemGroup>
 
   <ItemGroup>
