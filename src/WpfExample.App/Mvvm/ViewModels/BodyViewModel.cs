@@ -7,11 +7,11 @@ namespace WpfExample.App.Mvvm.ViewModels
     public partial class BodyViewModel : ObservableObject
     {
         [ObservableProperty]
-        private INavigatableViewModel _currentViewModel;
+        private object _currentViewModel;
 
         public BodyViewModel(HomeViewModel homeViewModel, ProductsViewModel productsViewModel)
         {
-            NavigateCommand = new AsyncRelayCommand<INavigatableViewModel>(Navigate);
+            NavigateCommand = new AsyncRelayCommand<object>(Navigate);
             HomeViewModel = homeViewModel;
             ProductsViewModel = productsViewModel;
 
@@ -20,21 +20,12 @@ namespace WpfExample.App.Mvvm.ViewModels
 
         public HomeViewModel HomeViewModel { get; set; }
         public ProductsViewModel ProductsViewModel { get; set; }
-        public IAsyncRelayCommand<INavigatableViewModel> NavigateCommand { get; }
+        public IAsyncRelayCommand<object> NavigateCommand { get; }
 
 
-        private async Task Navigate(INavigatableViewModel navigatableViewModel)
-        {
-            var canNavigateFrom = await CurrentViewModel.TryNavigateFrom();
-
-            if (canNavigateFrom)
-            {
-                var canNavigateTo = await navigatableViewModel.TryNavigateTo();
-                if (canNavigateTo) 
-                {
-                    CurrentViewModel = navigatableViewModel;
-                }
-            }        
+        private async Task Navigate(object navigatableViewModel)
+        {  
+            CurrentViewModel = navigatableViewModel;             
         }        
     }
 }
