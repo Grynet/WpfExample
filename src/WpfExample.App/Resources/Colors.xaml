@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Presentation/Shared/Styles/Theme/DarkMode.xaml"/>
+        <ResourceDictionary Source="/Presentation/Shared/Styles/Themes/DarkMode.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
