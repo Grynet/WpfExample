@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WpfExample.App.Mvvm.Models
+namespace WpfExample.App.Models
 {
     public class Product
     {

@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
-using WpfExample.App.Mvvm.Models;
+using WpfExample.App.Models;
 
 namespace WpfExample.App.Mvvm.ViewModels
 {
