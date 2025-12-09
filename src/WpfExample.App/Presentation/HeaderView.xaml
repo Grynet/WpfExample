@@ -29,7 +29,7 @@
 
         <Image Grid.Column="2"
                Height="25" 
-               Source="/Images/ShoppingCart.png"/>
+               Source="/Resources/Images/ShoppingCart.png"/>
     </Grid>
     
 </UserControl>
