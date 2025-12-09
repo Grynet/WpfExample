@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace WpfExample.App.Converters
+namespace WpfExample.App.Presentation.Shared.Converters
 {
     public sealed class BooleanToVisibilityConverter : IValueConverter
     {

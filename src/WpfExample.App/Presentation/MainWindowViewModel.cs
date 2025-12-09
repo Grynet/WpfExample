@@ -1,4 +1,5 @@
-﻿namespace WpfExample.App.Mvvm.ViewModels
+﻿
+namespace WpfExample.App.Presentation
 {
     public class MainWindowViewModel
     {

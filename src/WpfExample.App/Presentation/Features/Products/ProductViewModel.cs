@@ -2,7 +2,7 @@
 using System;
 using WpfExample.App.Models;
 
-namespace WpfExample.App.Mvvm.ViewModels
+namespace WpfExample.App.Presentation.Features.Products
 {
     public partial class ProductViewModel : ObservableObject
     {

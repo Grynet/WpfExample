@@ -1,8 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Threading.Tasks;
+using WpfExample.App.Presentation.Features.Home;
+using WpfExample.App.Presentation.Features.Products;
 
-namespace WpfExample.App.Mvvm.ViewModels
+namespace WpfExample.App.Presentation
 {
     public partial class BodyViewModel : ObservableObject
     {

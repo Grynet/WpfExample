@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using WpfExample.App.Repositories;
 
-namespace WpfExample.App.Mvvm.ViewModels
+namespace WpfExample.App.Presentation.Features.Products
 {
     public partial class ProductsViewModel : ObservableObject
     {

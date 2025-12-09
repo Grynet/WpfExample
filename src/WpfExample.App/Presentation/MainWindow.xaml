@@ -1,12 +1,11 @@
-﻿<Window x:Class="WpfExample.App.Mvvm.Views.MainWindow"
+﻿<Window x:Class="WpfExample.App.Presentation.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfExample.App.Mvvm.Views"
-        xmlns:viewModels="clr-namespace:WpfExample.App.Mvvm.ViewModels"
-        xmlns:converters="clr-namespace:WpfExample.App.Converters"
-        d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
+        xmlns:local="clr-namespace:WpfExample.App.Presentation"  
+        xmlns:converters="clr-namespace:WpfExample.App.Presentation.Shared.Converters"
+        d:DataContext="{d:DesignInstance local:MainWindowViewModel}"
         mc:Ignorable="d"
         Height="600" Width="920"
         MinWidth="600"
@@ -16,10 +15,10 @@
         Background="Transparent">
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type TypeName=viewModels:HeaderViewModel}">
+        <DataTemplate DataType="{x:Type TypeName=local:HeaderViewModel}">
             <local:HeaderView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type TypeName=viewModels:BodyViewModel}">
+        <DataTemplate DataType="{x:Type TypeName=local:BodyViewModel}">
             <local:BodyView/>
         </DataTemplate>
     </Window.Resources>

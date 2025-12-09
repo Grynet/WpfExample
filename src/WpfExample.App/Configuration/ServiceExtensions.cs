@@ -2,8 +2,9 @@
 using System;
 using System.Windows;
 using WpfExample.App.Factories;
-using WpfExample.App.Mvvm.ViewModels;
-using WpfExample.App.Mvvm.Views;
+using WpfExample.App.Presentation;
+using WpfExample.App.Presentation.Features.Home;
+using WpfExample.App.Presentation.Features.Products;
 using WpfExample.App.Repositories;
 
 

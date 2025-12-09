@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using WpfExample.App.Mvvm.ViewModels;
 
-namespace WpfExample.App.Mvvm.Views
+
+namespace WpfExample.App.Presentation.Features.Products
 {
     public partial class ProductsView : UserControl
     {

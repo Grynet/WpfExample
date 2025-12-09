@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace WpfExample.App.Mvvm.Views
+namespace WpfExample.App.Presentation.Features.Home
 {
     public partial class HomeView : UserControl
     {

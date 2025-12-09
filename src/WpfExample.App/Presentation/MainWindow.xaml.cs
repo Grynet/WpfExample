@@ -1,7 +1,6 @@
 ﻿using System.Windows;
-using WpfExample.App.Mvvm.ViewModels;
 
-namespace WpfExample.App.Mvvm.Views
+namespace WpfExample.App.Presentation
 {
     public partial class MainWindow : Window
     {
