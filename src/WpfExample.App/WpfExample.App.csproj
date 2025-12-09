@@ -20,12 +20,8 @@
     </None>
   </ItemGroup>
 
-	<ItemGroup>
-		<Folder Include="Images\" />
-	</ItemGroup>
-
   <ItemGroup>
-    <Resource Include="Images\ShoppingCart.png">
+    <Resource Include="Resources\Images\ShoppingCart.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
