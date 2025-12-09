@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Windows;
 using WpfExample.App.Configuration;
-using WpfExample.App.Mvvm.Views;
+using WpfExample.App.Presentation;
 
 namespace WpfExample.App
 {
@@ -22,7 +22,7 @@ namespace WpfExample.App
 
             builder.Services.RegisterOptions();
             builder.Services.RegisterFactories();
-            builder.Services.RegisterViews();
+            builder.Services.RegisterWindows();
             builder.Services.RegisterViewModels();
             builder.Services.RegisterRepositories();
 

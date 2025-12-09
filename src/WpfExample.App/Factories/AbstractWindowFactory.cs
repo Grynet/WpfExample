@@ -12,7 +12,7 @@ namespace WpfExample.App.Factories
             _windowFactory = factory;
         }
 
-        public TWindow Create()
+        public TWindow CreateWindow()
         {
             return _windowFactory();
         }

@@ -2,7 +2,10 @@
 using System;
 using System.Windows;
 using WpfExample.App.Factories;
-using WpfExample.App.Mvvm.Views;
+using WpfExample.App.Presentation;
+using WpfExample.App.Presentation.Features.Home;
+using WpfExample.App.Presentation.Features.Products;
+using WpfExample.App.Repositories;
 
 
 namespace WpfExample.App.Configuration
@@ -11,24 +14,29 @@ namespace WpfExample.App.Configuration
     {
         public static void RegisterOptions(this IServiceCollection services)
         {
-            services.AddOptionsWithValidateOnStart<MainWindowOptions>()
-                .BindConfiguration(MainWindowOptions.Position)
+            services.AddOptionsWithValidateOnStart<UiOptions>()
+                .BindConfiguration(UiOptions.Position)
                 .ValidateDataAnnotations();
         }
 
-        public static void RegisterViews(this IServiceCollection services)
+        public static void RegisterWindows(this IServiceCollection services)
         {
-            services.AddSingleton<MainWindow>();
+            services.AddScoped<MainWindow>();
         }
 
         public static void RegisterViewModels(this IServiceCollection services)
         {
+            services.AddScoped<MainWindowViewModel>();
+            services.AddScoped<HeaderViewModel>();
+            services.AddScoped<BodyViewModel>();
 
+            services.AddTransient<HomeViewModel>();
+            services.AddTransient<ProductsViewModel>();
         }
 
         public static void RegisterRepositories(this IServiceCollection services)
         {
-
+            services.AddSingleton<IProductRepository, ProductInMemoryRepository>();
         }
 
         public static void RegisterFactories(this IServiceCollection services)
