@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System.Threading.Tasks;
 using WpfExample.App.Presentation.Features.Home;
 using WpfExample.App.Presentation.Features.Products;
 
@@ -13,7 +12,7 @@ namespace WpfExample.App.Presentation
 
         public BodyViewModel(HomeViewModel homeViewModel, ProductsViewModel productsViewModel)
         {
-            NavigateCommand = new AsyncRelayCommand<object>(Navigate);
+            NavigateCommand = new RelayCommand<object>(Navigate);
             HomeViewModel = homeViewModel;
             ProductsViewModel = productsViewModel;
 
@@ -22,10 +21,10 @@ namespace WpfExample.App.Presentation
 
         public HomeViewModel HomeViewModel { get; set; }
         public ProductsViewModel ProductsViewModel { get; set; }
-        public IAsyncRelayCommand<object> NavigateCommand { get; }
+        public IRelayCommand<object> NavigateCommand { get; }
 
 
-        private async Task Navigate(object navigatableViewModel)
+        private void Navigate(object navigatableViewModel)
         {  
             CurrentViewModel = navigatableViewModel;             
         }        
